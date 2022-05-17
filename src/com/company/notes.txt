@@ -1,4 +1,113 @@
-Branching:
+---------------------------------------Stashing------------------------------------------------:
+Stashing stores the snapshot of your current file /changes in a separate
+container
+and reverts the condition of your working directory to the last commit (it
+also changes the staging area to last commit)
 
-Scenario:
-Create a basic structure of solar system and deploy it as soon as possible.
+
+Git and Github should have the same commit history
+There will be a conflict when  there are two different commits at the same
+point in the history
+Stash the previous changes or make a commit before applying a new stash
+
+
+
+-------------------------------------------Important------------------------------------------------- :
+if you have a stash applied and want to apply another stash you must
+"restash " the previous stash and then apply the previous stash
+or instead of re-stashing you can also add it to staging area but this
+will create a merge conflict
+Once you have resolved the merge conflict , if you try to stash the
+changes' git will ask you to commit it before that
+But if you don't want to make a commit then what you can do is, add the
+file in the staging area and use git stash to stash the changes
+and revert to last commit.
+
+
+---------------------------------------------------------------------------------
+TAsk:
+stashing untracked untracked files
+git stash -u stashes the untracked files'
+git stash -m "message" doesn't stash the untracked files
+
+
+============================================Github and stashing use case================================
+1. Git stash -m "message":  (this command can also be git stash/ git
+stash save "")
+saves a stash with the message
+2. git stash -u:
+stashes the untracked files
+3. git stash list all stashes
+4. git stash apply index number
+applies the stash but doesn't delete it from the stash area
+5. similar to git stash apply we have a command git stash pop
+indexnumber:
+so this command applies the stash and also deletes it from the stashing
+area.
+6. git stash drop indexnumber:
+delete the stashes
+
+		 Git Class 06
+
+
+Git stashing:
+1.git stash -m "first stash"
+2.git apply numberOfApply
+3.git stash list
+
+
+q)what happens when you stash ?
+A)it moves the changes in our working directory to temporary stash area, and it reverts our working directory to the last commit in the repo...
+
+
+Q)What happens if you apply a stash and after that you want to apply another stash ?
+1.in order to apply another stash you have to restash the first one
+
+but but but let's say we donot stash the first one
+then
+it will just give us an error saying you have some changes in your directory to be committed or stashed!!!
+
+
+Q)what if we apply a stash and then commit it, and then we apply a previous stash again?
+1.when we apply the first stash and commit it, now the working directory will be on the latest commit.....
+
+
+now if we want to apply a previous stash , git will look and say that when this stash was made the state of working directory was different!!
+
+
+in some scenarios you might find merge conflict or if there is no conflict then simple merge!!!
+
+
+
+
+
+
+
+				Branches in GIT
+
+Why do we need branches?
+1.not to mess up our main branch
+
+example :
+main branch --> facebook v5.0
+meta--> testing features to be added
+ once they have tested meta
+integrate it with main
+
+Main branch--> fb v5.0 --> meta final feautes added
+
+2.To add more features in our code
+
+3.To fix a bug
+
+
+
+
+		THE  PROJECT  SOLAR SYSTEM
+
+1)To have the basic strucutre of the solar systemReady and deployed.
+Lets quickly deploy this code
+
+git branch -M main
+
+git push -u origin main
